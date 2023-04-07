@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import com.tts.h2explore.domain.Customer;
 import com.tts.h2explore.repository.CustomerRepository;
 
-
 @SpringBootApplication
 public class H2exploreApplication {
 	private static final Logger log = LoggerFactory.getLogger(H2exploreApplication.class);
@@ -19,8 +18,8 @@ public class H2exploreApplication {
 		SpringApplication.run(H2exploreApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
+    @Bean
+    CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
 			// save a couple of customers
 			repository.save(new Customer("Michael", "Smith"));
@@ -56,5 +55,4 @@ public class H2exploreApplication {
 			log.info("");
 		};
 	}
-
 }
